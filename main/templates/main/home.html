@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Students</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 48px 20px;
+            background: #f4f7f5;
+            color: #26352c;
+            font-family: "Segoe UI", sans-serif;
+        }
+
+        main {
+            max-width: 680px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-family: inherit;
+            margin: 0 0 20px;
+            font-size: 28px;
+        }
+
+        .list {
+            overflow: hidden;
+            border: 1px solid #000000;
+            border-radius: 6px;
+            background: #fff;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        th, td {
+            padding: 13px 16px;
+        }
+
+        th {
+            background: #e8f1eb;
+            color: #385b45;
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        td {
+            border-top: 1px solid #edf1ee;
+        }
+
+        th:first-child,
+        td:first-child {
+            width: 64px;
+            color: #6b786f;
+        }
+
+        .empty {
+            padding: 24px 16px;
+            color: #6b786f;
+            text-align: center;
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 32px 16px;
+            }
+
+            th, td {
+                padding: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <h1>STUDENT LIST</h1>
+        <section class="list" aria-label="STUDENT LIST">
+            <table>
+                <thead>
+                    <tr>
+                        <th scope="col">No.</th>
+                        <th scope="col">Name</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for student in students %}
+                        <tr>
+                            <td>{{ forloop.counter }}</td>
+                            <td>{{ student.name }}</td>
+                        </tr>
+                    {% empty %}
+                        <tr>
+                            <td class="empty" colspan="2">No students found.</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </section>
+    </main>
+</body>
+</html>
